@@ -7,6 +7,7 @@ const morgan=require('morgan')
 const userRoute=require('./routes/users')
 const postRoute=require('./routes/post')
 const authRoute=require('./routes/auth')
+var cors = require('cors')
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ mongoose.connect(process.env.URL,{useNewUrlParser:true},()=>{
 });
 //middile ware
 app.use(express.json())
+app.use(cors())
 app.use(helmet())
 app.use('/user',userRoute)
 app.use('/post',postRoute)
