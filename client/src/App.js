@@ -8,6 +8,8 @@ import {
   Route,
 } from "react-router-dom";
 import Profile from './pages/Profile';
+import { useContext, useEffect, useState } from 'react';
+import { AppContext } from './Context/AppContext';
 function App() {
   return (
     <div className="App">

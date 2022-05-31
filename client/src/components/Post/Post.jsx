@@ -1,6 +1,7 @@
 import { MoreVert, ThumbUp } from '@mui/icons-material'
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
+import { format} from 'timeago.js';
 
 import './Post.css'
 function Post(props) {
@@ -29,7 +30,7 @@ function Post(props) {
                 <div className="posttopleft">
                     <img src={user.profilePicture} className='postprofileimage' alt="" />
                     <span className="postusername">{user.username}</span>
-                    <span className="postdate">5 min ago</span>
+                    <span className="postdate">{format(props.post.createdAt)}</span>
                 </div>
                 <div className="posttopright">
                     <MoreVert/>
