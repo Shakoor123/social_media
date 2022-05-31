@@ -1,7 +1,13 @@
-import React from 'react'
-import './Navbar.css'
+import React from 'react';
+import './Navbar.css';
 import {Search,Person,Chat,Notifications} from '@mui/icons-material';
+import {AppContext} from '../../Context/AppContext'
+import { useContext } from 'react'
+
 function Navbar() {
+
+  const {cuser}=useContext(AppContext);
+
   return (
     <div className='topbarcontainer'>
       <div className="topbarleft">
@@ -15,9 +21,7 @@ function Navbar() {
       </div>
       <div className="topbarright">
         <div className="topbarlinks">
-          <span className="topbarlink">Homepage</span>
-          <span className="topbarlink">timeline</span>
-
+          <span className="topbarlink">{cuser.username}</span>
         </div>
         <div className="topbaricons">
           <div className="topbariconitem">

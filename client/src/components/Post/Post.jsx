@@ -2,6 +2,7 @@ import { MoreVert, ThumbUp } from '@mui/icons-material'
 import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 import { format} from 'timeago.js';
+import { Link } from "react-router-dom";
 
 import './Post.css'
 function Post(props) {
@@ -20,7 +21,8 @@ function Post(props) {
             
           }
           getUser();
-    }, [])
+    }, [props.post.userId])
+
     
   return (
     <div>
@@ -28,9 +30,11 @@ function Post(props) {
         <div className="postwrapper">
             <div className="posttop">
                 <div className="posttopleft">
-                    <img src={user.profilePicture} className='postprofileimage' alt="" />
+                    <Link to={`/profile/${user.username}`}>
+                    <img src={user.profilePicture} className='postprofileimage' alt="" /></Link>
                     <span className="postusername">{user.username}</span>
                     <span className="postdate">{format(props.post.createdAt)}</span>
+                    
                 </div>
                 <div className="posttopright">
                     <MoreVert/>

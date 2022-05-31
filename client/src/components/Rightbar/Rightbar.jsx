@@ -52,8 +52,10 @@ function Rightbar({profile}) {
   return (
     <div className='rightbar'>
       <div className="rightbarwrapper">
-        <Homerightbar/>
-        
+        {profile==="pro"
+        ?Profilerightbar()
+        :Homerightbar()
+        }
       </div>
     </div>
   )

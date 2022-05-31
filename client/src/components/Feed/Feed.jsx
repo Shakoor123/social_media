@@ -3,12 +3,18 @@ import React, { useEffect, useState } from 'react'
 import "./Feed.css"
 import Post from '../Post/Post'
 import axios from 'axios'
-function Feed() {
+import {AppContext} from '../../Context/AppContext'
+import { useContext } from 'react'
+function Feed({username}) {
+  
+  const {cuser}=useContext(AppContext);
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const getData=async()=>{
-      const res=await axios("/post/timeline/6293931f07972cd67a78b94e");
+      const res=username 
+      ? await axios.get(`${process.env.React_App_PUBLIC_URL}/post/profile/${username}`)
+      : await axios.get(`${process.env.React_App_PUBLIC_URL}/post/timeline/${cuser._id}`);
       setPosts(res.data)
       
     }

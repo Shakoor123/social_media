@@ -1,26 +1,25 @@
 import './Login.css'
 import { useContext, useState } from 'react';
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import {AppContext} from '../../Context/AppContext'
 function LoginC() {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
-  const navigate = useNavigate();
   const {cuser,setCuser}=useContext(AppContext)
-
+  let navigate = useNavigate();
   const action=async()=>{
-    await axios.post("/auth/login",{  
+    await axios.post(`${process.env.React_App_PUBLIC_URL}/auth/login`,{  
       email:email,
       password:password
     }).then((response)=>{
       if(response.data){
-        console.log(response.data);
-        alert(cuser)
+        setCuser(response.data)
+        navigate("/");
       }else{
-        alert(cuser)
-
+        console.log("email and password was wrong")
+        navigate('/login')
       }
     }
       )
