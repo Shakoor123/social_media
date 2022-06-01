@@ -10,16 +10,23 @@ function Signup() {
   const [username, setUsername] = useState("")
   const navigate = useNavigate();
   const action=()=>{
-    axios.post("http://localhost:4000/login",{
-      
+    if(password==retypepassword)
+    {
+    axios.post(`${process.env.React_App_PUBLIC_URL}/auth`,{
+      username:username,
       email:email,
       password:password
     }).then((response)=>{
-      console.log(response.data);
-      
-      navigate('/')
-    }
-      )
+      if(response.data){
+        navigate('/login')
+      }else{
+        console.log(response);
+
+      }
+    })
+  }else{
+    alert("password did'n match")
+  }
   }
 
 

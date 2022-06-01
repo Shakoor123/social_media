@@ -1,17 +1,23 @@
 import { MoreVert, ThumbUp } from '@mui/icons-material'
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState,useContext} from 'react'
 import axios from 'axios'
 import { format} from 'timeago.js';
 import { Link } from "react-router-dom";
+import {AppContext} from '../../Context/AppContext'
 
 import './Post.css'
 function Post(props) {
     const [updateLike, setUpdateLike] = useState(false)
     const [user, setUser] = useState({})
     const [like, setLike] = useState()
-    const  likehandler=()=>{
-        setUpdateLike(!updateLike?true:false)
-        setLike(updateLike?like-1:like+1)
+    const {cuser}=useContext(AppContext)
+
+    
+    const likeClicked=async()=>{
+        const res=await axios.put(`${process.env.React_App_PUBLIC_URL}/post/${props.post._id}/like`,{
+            userId:cuser._id
+        });
+        console.log(res);
     }
     useEffect(() => {
         setLike(props.post.likes.length)
@@ -47,7 +53,7 @@ function Post(props) {
             <div className="postbottom">
                 <div className="postbottomleft">
                     <ThumbUp className='likeicon'
-                    onClick={likehandler}
+                    onClick={likeClicked}
                     htmlColor={updateLike?"blue":""}/>
                     <span className="postlikecounter">{like} peoples like it</span>
                 </div>
