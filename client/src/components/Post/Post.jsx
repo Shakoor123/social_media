@@ -7,17 +7,24 @@ import {AppContext} from '../../Context/AppContext'
 
 import './Post.css'
 function Post(props) {
-    const [updateLike, setUpdateLike] = useState(false)
+    const [isliked, setIsliked] = useState(false)
     const [user, setUser] = useState({})
     const [like, setLike] = useState()
     const {cuser}=useContext(AppContext)
-
+    useEffect(() => {
+    setIsliked(props.post.likes.includes(cuser._id))
+    }, [cuser._id,props.post.likes])
     
     const likeClicked=async()=>{
-        const res=await axios.put(`${process.env.React_App_PUBLIC_URL}/post/${props.post._id}/like`,{
-            userId:cuser._id
-        });
-        console.log(res);
+        try {
+            axios.put(`${process.env.React_App_PUBLIC_URL}/post/${props.post._id}/like/`,{
+                userId:cuser._id,
+            })
+        } catch (err) {
+            
+        }
+        setLike(isliked?like-1:like+1);
+        setIsliked(!isliked)
     }
     useEffect(() => {
         setLike(props.post.likes.length)
@@ -54,7 +61,7 @@ function Post(props) {
                 <div className="postbottomleft">
                     <ThumbUp className='likeicon'
                     onClick={likeClicked}
-                    htmlColor={updateLike?"blue":""}/>
+                    htmlColor={isliked?"blue":""}/>
                     <span className="postlikecounter">{like} peoples like it</span>
                 </div>
                 <div className="postbottomright">

@@ -8,17 +8,18 @@ import {
   Route,
 } from "react-router-dom";
 import Profile from './pages/Profile';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { AppContext } from './Context/AppContext';
 function App() {
+  const {cuser} =useContext(AppContext)
   return (
     <div className="App">
       <BrowserRouter>
     <Routes>
-      <Route path="/"  element={<Home />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/profile/:username" element={<Profile />} />
+      <Route path="/"  element={cuser?<Home />:<Login/>} />
+      <Route path="/login" element={cuser?<Home/>:<Login />} />
+      <Route path="/signup" element={cuser?<Home/>:<Signup />} />
+      <Route path="/profile/:username" element={cuser?<Profile />:<Login/>} />
     </Routes>
   </BrowserRouter>
     </div>

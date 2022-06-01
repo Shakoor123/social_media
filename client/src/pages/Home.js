@@ -5,6 +5,7 @@ import Feed from '../components/Feed/Feed'
 import Rightbar from '../components/Rightbar/Rightbar'
 import './Home.css'
 function Home() {
+
   return (
     <div>
         <Navbar />

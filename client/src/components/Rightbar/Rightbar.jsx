@@ -32,7 +32,7 @@ function Rightbar({user}) {
             </div>
             <div className="rightbarinfoitem">
               <span className="rightbarinfokey">Realationship</span>
-              <span className="rightbarinfovalue">{user.relationship}</span>
+              <span className="rightbarinfovalue">{user.relationship==1?"single":user.relationship==2?"commited":"-"}</span>
             </div>
             
           </div>

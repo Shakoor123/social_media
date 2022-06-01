@@ -3,6 +3,7 @@ import './Navbar.css';
 import {Search,Person,Chat,Notifications} from '@mui/icons-material';
 import {AppContext} from '../../Context/AppContext'
 import { useContext } from 'react'
+import {Link} from 'react-router-dom'
 
 function Navbar() {
 
@@ -37,7 +38,9 @@ function Navbar() {
             <span className="topbariconbadge">1</span>
           </div>
         </div>
-        <img src="/Assets/noimage.png" alt="" className="topbarimage" />
+        <Link to={`/profile/${cuser.username}`}>
+        <img src={cuser.profilePicture?cuser.profilePicture:"/Assets/noimage.png"} alt="" className="topbarimage" />
+        </Link>
       </div>
 
     </div>
