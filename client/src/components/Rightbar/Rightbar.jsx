@@ -1,7 +1,7 @@
 import React from 'react'
 import Online from '../online/Online'
 import './Rightbar.css'
-function Rightbar({profile}) {
+function Rightbar({user}) {
   const Homerightbar=()=>{
     return(
     <>
@@ -23,16 +23,16 @@ function Rightbar({profile}) {
           <div className="rightbarinfo">
             <h4>heloow user information</h4>
             <div className="rightbarinfoitem">
-              <span className="rightbarinfokey">age:</span>
-              <span className="rightbarinfovalue">20</span>
+              <span className="rightbarinfokey">city</span>
+              <span className="rightbarinfovalue">{user.city}</span>
             </div>
             <div className="rightbarinfoitem">
-              <span className="rightbarinfokey">age:</span>
-              <span className="rightbarinfovalue">20</span>
+              <span className="rightbarinfokey">from</span>
+              <span className="rightbarinfovalue">{user.from}</span>
             </div>
             <div className="rightbarinfoitem">
-              <span className="rightbarinfokey">age:</span>
-              <span className="rightbarinfovalue">20</span>
+              <span className="rightbarinfokey">Realationship</span>
+              <span className="rightbarinfovalue">{user.relationship}</span>
             </div>
             
           </div>
@@ -52,7 +52,7 @@ function Rightbar({profile}) {
   return (
     <div className='rightbar'>
       <div className="rightbarwrapper">
-        {profile==="pro"
+        {user
         ?Profilerightbar()
         :Homerightbar()
         }

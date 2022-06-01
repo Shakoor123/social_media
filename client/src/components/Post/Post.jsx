@@ -16,7 +16,7 @@ function Post(props) {
     useEffect(() => {
         setLike(props.post.likes.length)
         const getUser=async()=>{
-            const res=await axios.get(`/user/${props.post.userId}`);
+            const res=await axios.get(`/user?userId=${props.post.userId}`);
             setUser(res.data)
             
           }
