@@ -25,7 +25,7 @@ function Feed(props) {
   return (
     <div className='feed'>
       <div className="feedwrapper">
-        <Share/>
+       {(!props.username ||props.username===cuser.username) &&<Share/> }
         {posts.map(post=>{
 
       return <Post post={post}/>

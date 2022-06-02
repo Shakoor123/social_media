@@ -44,7 +44,7 @@ function Post(props) {
             <div className="posttop">
                 <div className="posttopleft">
                     <Link to={`/profile/${user.username}`}>
-                    <img src={user.profilePicture} className='postprofileimage' alt="" /></Link>
+                    <img src={user.profilePicture?user.profilePicture:"/Assets/noimage.png"} className='postprofileimage' alt="" /></Link>
                     <span className="postusername">{user.username}</span>
                     <span className="postdate">{format(props.post.createdAt)}</span>
                     

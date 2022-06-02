@@ -20,7 +20,9 @@ export default function Context({children}){
         from
         :"kerala",
         relationship
-        :1})
+        :1,
+        followings:[],
+        })
     return(
         <AppContext.Provider value={{cuser,setCuser}}>
             {children}

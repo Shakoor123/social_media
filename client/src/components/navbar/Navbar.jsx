@@ -12,7 +12,7 @@ function Navbar() {
   return (
     <div className='topbarcontainer'>
       <div className="topbarleft">
-        <span className='logo'>PlaceBook</span>
+       <Link to={"/"}> <span className='logo'>PlaceBook</span></Link>
       </div>
       <div className="topbarcenter">
         <div className="searchbar">

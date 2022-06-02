@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import './Share.css'
-import { PermMedia, Label, Room, EmojiEmotions } from '@mui/icons-material'
+import { PermMedia, Label, Room, EmojiEmotions, Cancel } from '@mui/icons-material'
 import { AppContext } from '../../Context/AppContext'
 import axios from 'axios'
 function Share() {
@@ -61,6 +61,14 @@ function Share() {
             placeholder={'what is your mind ' + cuser.username + '  ?'} className="shareinput" />
         </div>
         <hr className="sharehr" />
+        {image&&(
+          <div className="shareimagecontainer">
+            <img src={URL.createObjectURL(image)} alt="" className="shareimg" />
+            <Cancel className='sharecancel' onClick={()=>{
+              setImage(null)
+            }}/>
+          </div>
+        )}
         <div className="sharebottom">
           <div className="shareoptions">
             <label className="shareoption" htmlFor='file'>
