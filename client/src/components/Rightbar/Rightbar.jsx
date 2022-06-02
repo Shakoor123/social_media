@@ -1,7 +1,26 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import Online from '../online/Online'
 import './Rightbar.css'
 function Rightbar({user}) {
+  const [friends,setFriends]=useState({
+    profilePicture:"/Assets/noimage.png",
+    username:"shakoor",
+
+  })
+  // useEffect(() => {
+  //   const getFriends=async()=>{
+      
+  //     try {
+  //       const res=await axios.get(`${process.env.React_App_PUBLIC_URL}/user/friends/${user._id}`)
+  //       setFriends(res.data)
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  //   getFriends();
+  // }, [user._id])
+
   const Homerightbar=()=>{
     return(
     <>
@@ -37,12 +56,18 @@ function Rightbar({user}) {
             
           </div>
           <h4>USER FRIENDS</h4>
+          {friends.map(friend=>(
+
+          
             <div className="rightbarfollowings">
+
               <div className="rightbarfollowing">
-                <img src="/Assets/noimage.png" alt="" className="rightbarfollowingimage" />
-                <span className="rightbarfollowingname">john carter</span>
+                <img src={friend.profilePicture?friend.profilePicture:"/Assets/noimage.png"} alt="" className="rightbarfollowingimage" />
+                <span className="rightbarfollowingname">{friend.username}</span>
               </div>
+              
             </div>
+          ))}
         </>
 
 
