@@ -30,7 +30,9 @@ function Navbar() {
             <span className="topbariconbadge">1</span>
           </div>
           <div className="topbariconitem">
+            <Link to={'/messenger'}>
             <Chat/>
+            </Link>
             <span className="topbariconbadge">1</span>
           </div>
           <div className="topbariconitem">
