@@ -7,6 +7,9 @@ const morgan=require('morgan')
 const userRoute=require('./routes/users')
 const postRoute=require('./routes/post')
 const authRoute=require('./routes/auth')
+const conversationRoute=require('./routes/coversations')
+const messageRoute=require('./routes/messages')
+
 var cors = require('cors')
 
 dotenv.config();
@@ -26,6 +29,8 @@ app.use(helmet())
 app.use('/user',userRoute)
 app.use('/post',postRoute)
 app.use('/auth',authRoute)
+app.use('/conversation',conversationRoute)
+app.use('/message',messageRoute)
 
 
 
