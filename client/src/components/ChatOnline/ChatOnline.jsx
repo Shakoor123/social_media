@@ -17,9 +17,10 @@ useEffect(() => {
   setOnlineFriends(friends.filter(f=>onlineUsers.includes(f._id)))
 }, [friends,onlineUsers])
 
-    const hadleClick=()=>{
+    const hadleClick=async(user)=>{
         try {
-            const res=await axios
+            const res=await axios.get(`${process.env.React_App_PUBLIC_URL}/conversation/find/${currentId}/${user._id}`)
+            setCurrentChat(res.data)
         } catch (err) {
             console.log(err);
         }
