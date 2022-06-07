@@ -9,6 +9,7 @@ function Rightbar({ user }) {
   const [friends, setFriends] = useState([])
   const {cuser}=useContext(AppContext)
   const [followed, setFollowed] = useState(false)
+  const [all, setAll] = useState([])
   useEffect(() => {
     setFollowed(cuser.followings.includes(user?._id))
   },[cuser,user])
@@ -47,6 +48,13 @@ function Rightbar({ user }) {
     }
     setFollowed(!followed)
   }
+useEffect(() => {
+  const getAll=async()=>{
+    const all=await axios.get(`${process.env.React_App_PUBLIC_URL}/user/users`)
+    setAll(all.data)
+  }
+  getAll()
+}, [])
 
 
   const Homerightbar = () => {
@@ -57,9 +65,12 @@ function Rightbar({ user }) {
           <span className="birthdaytext"><b>Sushanth A</b> and <b>3 other friends</b> have birthday today</span>
         </div>
         <img src="/Assets/ads.jpeg" alt="" className="rightbarimage" />
-        <h4 className="rightbartitle">Online Friends</h4>
+        <h4 className="rightbartitle">All Users</h4>
         <ul className="rightbarfriendlist">
-          <Online />
+          {all.map(a=>(
+            
+          <Online person={a}/>
+          ))}
         </ul>
       </>
     )
