@@ -1,7 +1,7 @@
 import './Login.css'
 import { useContext, useState } from 'react';
 import axios from 'axios'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {AppContext} from '../../Context/AppContext'
 function LoginC() {
   
@@ -26,21 +26,29 @@ function LoginC() {
   }
 
   return (
-    <div class="text-center">
-      <h4>LOG IN</h4>
-  <div class="form-outline mb-4">
-    <input type="email" id="form2Example1" placeholder='Enter email'
-    onChange={(e)=>setEmail(e.target.value)}
-    /><br/>
-  </div>  
-
-  <div class="form-outline mb-4">
-    <input type="password" id="form2Example2" placeholder='Enter password'
-     onChange={(e)=>setPassword(e.target.value)}
-    /><br/>
-  </div>
-
-  <button type="button" onClick={action} class="btn btn-primary btn-block mb-4">Log in</button>
+    <div className="main">
+    <div className="signup">
+      <div class="text-center">
+        <h4 className='heading'>Login</h4>
+        
+        <div class="form-outline mb-4">
+          <input type="email" className='forminput' placeholder='Enter Your Email' id="form2Example1"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div class="form-outline mb-4">
+          <input type="password" className='forminput' placeholder='Enter your password' id="form2Example2"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <Link to={'/signup'} style={{textDecoration:'none'}}>
+        <span className='signup-text'>Don't have an Account</span>
+        </Link>
+        <div className='bottom'>
+        <button type="button" onClick={action} class=" buttton">Login</button><br></br>
+        </div>
+      </div>
+    </div>
     </div>
   )
 }

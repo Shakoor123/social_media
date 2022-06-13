@@ -22,7 +22,9 @@ function Navbar() {
         <div className="topbarlinks">
           <span className="topbarlink">{cuser.username}</span>
         </div>
+        <div className="logoutButton">
         {cuser?<ExitToApp onClick={logOut}></ExitToApp>:""}
+        </div>
         <div className="topbaricons">
           <div className="topbariconitem">
             <Person/>
