@@ -11,6 +11,8 @@ function Post(props) {
     const [user, setUser] = useState({})
     const [like, setLike] = useState()
     const {cuser}=useContext(AppContext)
+
+
     useEffect(() => {
     setIsliked(props.post.likes.includes(cuser._id))
     }, [cuser._id,props.post.likes])
@@ -35,7 +37,7 @@ function Post(props) {
           }
           getUser();
     }, [props.post.userId])
-
+    
     
   return (
     <div>
@@ -49,8 +51,9 @@ function Post(props) {
                     <span className="postdate">{format(props.post.createdAt)}</span>
                     
                 </div>
-                <div className="posttopright">
-                    <MoreVert/>
+                <div className="posttopright" style={{cursor:"pointer"}}>
+                    
+                    {(!props.username || props.username===cuser.username) && <MoreVert  /> }
                 </div>
             </div>
             <div className="postcenter">

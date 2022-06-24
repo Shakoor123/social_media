@@ -25,10 +25,10 @@ function Feed(props) {
   return (
     <div className='feed'>
       <div className="feedwrapper">
-       {(!props.username ||props.username===cuser.username) &&<Share/> }
+       {(!props.username || props.username===cuser.username) &&<Share/> }
         {posts.map(post=>{
 
-      return <Post post={post}/>
+      return <Post post={post} username={props.username}/>
         })}
 
       </div>

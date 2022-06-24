@@ -3,22 +3,29 @@ import { useContext, useState } from 'react';
 import axios from 'axios'
 import { Link, useNavigate } from "react-router-dom";
 import {AppContext} from '../../Context/AppContext'
+import CircularProgress from '@mui/material/CircularProgress';
 function LoginC() {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("")
   const {cuser,setCuser}=useContext(AppContext)
+  const [loding, setloding] = useState(false)
   let navigate = useNavigate();
   const action=async()=>{
+    setloding(true);
     await axios.post(`${process.env.React_App_PUBLIC_URL}/auth/login`,{  
       email:email,
       password:password
     }).then((response)=>{
       if(response.data){
         setCuser(response.data)
+        setloding(false)
+
         navigate("/");
       }else{
         console.log("email and password was wrong")
+        setloding(false)
+
         navigate('/login')
       }
     }
@@ -45,7 +52,9 @@ function LoginC() {
         <span className='signup-text'>Don't have an Account</span>
         </Link>
         <div className='bottom'>
-        <button type="button" onClick={action} class=" buttton">Login</button><br></br>
+        <button type="button" onClick={action} class=" buttton">
+          {loding ? <CircularProgress color="success" style={{size:'20px'}}/>:"Login"}
+        </button><br></br>
         </div>
       </div>
     </div>
