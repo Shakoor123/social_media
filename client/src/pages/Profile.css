@@ -42,3 +42,8 @@
 .profilerightbottom{
     display: flex;  
 }
+.edit{
+    cursor: pointer;
+    margin: 10px;
+    
+}

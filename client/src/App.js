@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import { useContext } from 'react';
 import { AppContext } from './Context/AppContext';
 import Messenger from './pages/Messenger';
+import Edit from './pages/Edit';
 function App() {
   const {cuser} =useContext(AppContext)
   return (
@@ -22,6 +23,8 @@ function App() {
       <Route path="/login" element={cuser?<Home/>:<Login />} />
       <Route path="/signup" element={cuser?<Home/>:<Signup />} />
       <Route path="/profile/:username" element={cuser?<Profile />:<Login/>} />
+      <Route path="/edit" element={cuser?<Edit />:<Login/>} />
+
     </Routes>
   </BrowserRouter>
     </div>
