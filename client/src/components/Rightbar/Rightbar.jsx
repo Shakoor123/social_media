@@ -35,12 +35,19 @@ function Rightbar({ user }) {
       if(followed){
         await axios.put(`${process.env.React_App_PUBLIC_URL}/user/${user._id}/unfollow`,{
           userId:cuser._id,
-        })
+        }).then(
+          await axios.delete(`${process.env.React_App_PUBLIC_URL}/conversation/${cuser._id}/${user._id}`).then(console.log("conversation reset"))
+        )
   
       }else{
         await axios.put(`${process.env.React_App_PUBLIC_URL}/user/${user._id}/follow`,{
           userId:cuser._id,
-        })
+        }).then(
+          await axios.post(`${process.env.React_App_PUBLIC_URL}/conversation`,{
+            senderId:cuser._id,
+            receverId:user._id
+          }).then(console.log("conversation set"))
+        )
   
       }
     } catch (err) {
@@ -62,18 +69,19 @@ useEffect(() => {
       <>
         <div className="birthdaycontainer">
           <img src="/Assets/gift.jpeg" alt="" className="birthdayimage" />
-          <span className="birthdaytext"><b>Sushanth A</b> and <b>3 other friends</b> have birthday today</span>
+          <span className="birthdaytext">
+            <b>Sushanth A</b> and <b>3 other friends</b> have birthday today
+          </span>
         </div>
         <img src="/Assets/ads.jpeg" alt="" className="rightbarimage" />
         <h4 className="rightbartitle">All Users</h4>
         <ul className="rightbarfriendlist">
-          {all.map(a=>(
-            
-          <Online person={a}/>
+          {all.map((a) => (
+            <Online person={a} />
           ))}
         </ul>
       </>
-    )
+    );
   }
   const Profilerightbar = () => {
     return (

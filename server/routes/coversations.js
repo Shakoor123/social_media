@@ -24,7 +24,17 @@ router.get('/find/:firstUserId/:secondUserId',async(req,res)=>{
         res.status(500).json(err)
     }
 })
-
+//delete conversation
+router.delete('/:firstUserId/:secondUserId',async(req,res)=>{
+    try {
+        const conversation=await Conversation.findOne({
+            members:{$all:[req.params.firstUserId,req.params.secondUserId]}
+        })
+        await conversation.deleteOne();
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
 //get coversation of a user
 router.get('/:userId',async(req,res)=>{
     try {

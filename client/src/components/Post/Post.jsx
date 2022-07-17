@@ -31,13 +31,18 @@ function Post(props) {
     useEffect(() => {
         setLike(props.post.likes.length)
         const getUser=async()=>{
-            const res=await axios.get(`/user?userId=${props.post.userId}`);
+            const res=await axios.get(`/user?userId=${props.post._id}`);
             setUser(res.data)
             
           }
           getUser();
     }, [props.post.userId])
-    
+    const deletePost=()=>{
+        console.log(cuser._id);
+        axios.delete(`${process.env.React_App_PUBLIC_URL}/post/${props.post._id}?userId=${cuser._id}`).then(
+            window.location.reload()
+        )
+    }
     
   return (
     <div>
@@ -51,9 +56,9 @@ function Post(props) {
                     <span className="postdate">{format(props.post.createdAt)}</span>
                     
                 </div>
-                <div className="posttopright" style={{cursor:"pointer"}}>
+                <div className="posttopright" style={{cursor:"pointer"}} onClick={deletePost}>
                     
-                    {(!props.username || props.username===cuser.username) && <MoreVert  /> }
+                    {(props.username || props.username===cuser.username) && <MoreVert /> }
                 </div>
             </div>
             <div className="postcenter">
