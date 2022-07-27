@@ -24,16 +24,16 @@
     padding: 8PX;
     border-radius: 12PX;
     background-color:rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    color: lightblue;
     
 }
 .forminput:hover{
     background-color:rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
+    color:blue;
     
 }
 .buttton{
-    background-color: rgb(0, 0, 0);
+    background-color:lightblue;
     color: rgb(255, 255, 255);
     width: 300px;
     padding: 8PX;
@@ -41,7 +41,7 @@
 }
 .buttton:hover{
     background-color:rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
+    color:blue;
     
 }
 .bottom{
@@ -57,5 +57,5 @@
     border-radius: 15px;
 }
 .signup-text:hover{
-    color: rebeccapurple;
+    color: lightblue;
 }

@@ -30,13 +30,14 @@ function Navbar() {
             <Person/>
             <span className="topbariconbadge">1</span>
           </div>
-          <Link to={'/messenger'} style={{textDecoration:"none"}}>
-          <div className="topbariconitem">
-           
+          <div className="topbariconitem" style={{textDecoration:"none"}}>
+          <Link to={'/messenger'}>
+
             <Chat/>
             <span className="topbariconbadge">1</span>
+            </Link>
+
           </div>
-          </Link>
 
           <div className="topbariconitem">
             <Notifications/>

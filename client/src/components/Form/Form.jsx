@@ -25,7 +25,7 @@ const Form = () => {
   const [cover, setCover] = useState("");
   const [profileUrl, setProfileUrl] = useState();
   const [coverUrl, setCoverUrl] = useState("");
-  const [desc, setDesc] = useState(nuser.desc);
+  const [desc, setDesc] = useState("");
   const [city, setCity] = useState("");
   const [from, setFrom] = useState("");
   const [relatonship, setRelatonship] = useState();
@@ -151,6 +151,7 @@ const Form = () => {
         <div className="inputContainer">
           <span className="span">desc</span>
           <input
+            value={cuser.desc}
             required
             type="text"
             onChange={(e) => setDesc(e.target.value)}
