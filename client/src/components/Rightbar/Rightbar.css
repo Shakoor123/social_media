@@ -78,9 +78,3 @@
 .rightbarfollowbutton:focus {
   outline: none;
 }
-
-@media (max-width: 720px) {
-  .rightbar {
-    display: none;
-  }
-}
