@@ -13,6 +13,9 @@ function Home() {
       <div className="homecontainer">
         <Leftbar />
         {right ? " " : <Feed setRight={setRight} />}
+        <div className="hide">
+          <Rightbar />
+        </div>
         {right ? <Rightbar setRight={setRight} /> : ""}
       </div>
     </div>

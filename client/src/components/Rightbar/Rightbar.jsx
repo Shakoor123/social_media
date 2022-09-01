@@ -18,7 +18,7 @@ function Rightbar({ user, setRight }) {
     const getFriends = async () => {
       try {
         await axios
-          .get(`${process.env.React_App_PUBLIC_URL}/user/friends/${user._id}`)
+          .get(`${process.env.React_App_PUBLIC_URL}/user/friends/${user?._id}`)
           .then((res) => {
             setFriends(res.data);
             console.log(friends);
@@ -79,6 +79,7 @@ function Rightbar({ user, setRight }) {
     return (
       <>
         <span
+          className="home"
           onClick={() => {
             setRight(false);
           }}
@@ -95,7 +96,7 @@ function Rightbar({ user, setRight }) {
         <h4 className="rightbartitle">All Users</h4>
         <ul className="rightbarfriendlist">
           {all.map((a) => (
-            <Online person={a} />
+            <Online person={a} key={a._id} />
           ))}
         </ul>
       </>

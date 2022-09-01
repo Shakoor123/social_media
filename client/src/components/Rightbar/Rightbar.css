@@ -78,3 +78,14 @@
 .rightbarfollowbutton:focus {
   outline: none;
 }
+.home {
+  font-weight: bold;
+  padding-left: 10px;
+  cursor: pointer;
+  width: fit-content;
+  border-bottom: 3px solid gray;
+}
+.rightbarinfoitem,
+.rightbarfollowings {
+  margin-left: 20px;
+}
