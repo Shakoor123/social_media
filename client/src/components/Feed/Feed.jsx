@@ -27,7 +27,14 @@ function Feed(props) {
   }, [props.username, cuser._id]);
   return (
     <div className="feed">
-      <span className="users">Users</span>
+      <span
+        className="users"
+        onClick={() => {
+          props.setRight(true);
+        }}
+      >
+        Users
+      </span>
       <div className="feedwrapper">
         {(!props.username || props.username === cuser.username) && <Share />}
         {posts.map((post) => {

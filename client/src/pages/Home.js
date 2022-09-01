@@ -5,7 +5,7 @@ import Feed from "../components/Feed/Feed";
 import Rightbar from "../components/Rightbar/Rightbar";
 import "./Home.css";
 function Home() {
-  const [right, setRight] = useState(true);
+  const [right, setRight] = useState(false);
 
   return (
     <div>
@@ -13,7 +13,7 @@ function Home() {
       <div className="homecontainer">
         <Leftbar />
         {right ? " " : <Feed setRight={setRight} />}
-        {right ? <Rightbar /> : ""}
+        {right ? <Rightbar setRight={setRight} /> : ""}
       </div>
     </div>
   );
