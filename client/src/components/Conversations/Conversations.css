@@ -1,20 +1,41 @@
-.conversation{
+.conversation {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.conversation:hover {
+  background-color: rgb(241, 235, 235);
+}
+.conversationImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+.conversationName {
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 480px) {
+  .conversation {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     cursor: pointer;
-    margin-top: 20px;
-}
-.conversation:hover{
-    background-color: rgb(241, 235, 235);
-}
-.conversationImg{
-    width: 40px;
-    height: 40px;
+    margin-top: 10px;
+  }
+  .conversationImg {
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 20px;
-}
-.conversationName{
+    margin-right: 10px;
+  }
+  .conversationName {
     font-weight: 400;
+    font-size: 9px;
+  }
 }
