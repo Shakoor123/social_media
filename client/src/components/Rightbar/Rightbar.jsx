@@ -39,13 +39,13 @@ function Rightbar({ user, setRight }) {
               userId: cuser._id,
             }
           )
-          .then(
-            await axios
-              .delete(
-                `${process.env.React_App_PUBLIC_URL}/conversation/${cuser._id}/${user._id}`
-              )
-              .then(console.log("conversation reset"))
-          );
+          .then
+          // await axios
+          //   .delete(
+          //     `${process.env.React_App_PUBLIC_URL}/conversation/${cuser._id}/${user._id}`
+          //   )
+          //   .then(console.log("conversation reset"))
+          ();
       } else {
         await axios
           .put(`${process.env.React_App_PUBLIC_URL}/user/${user._id}/follow`, {
@@ -53,11 +53,27 @@ function Rightbar({ user, setRight }) {
           })
           .then(
             await axios
-              .post(`${process.env.React_App_PUBLIC_URL}/conversation`, {
-                senderId: cuser._id,
-                receverId: user._id,
+              .get(
+                `${process.env.React_App_PUBLIC_URL}/conversation/find/${cuser._id}/${user._id}`
+              )
+              .then(async (resp) => {
+                if (resp.status !== 200) {
+                  await axios
+                    .post(`${process.env.React_App_PUBLIC_URL}/conversation`, {
+                      senderId: cuser._id,
+                      receverId: user._id,
+                    })
+                    .then(console.log("conversation set"));
+                }
               })
-              .then(console.log("conversation set"))
+              .catch(async () => {
+                await axios
+                  .post(`${process.env.React_App_PUBLIC_URL}/conversation`, {
+                    senderId: cuser._id,
+                    receverId: user._id,
+                  })
+                  .then(console.log("conversation set"));
+              })
           );
       }
     } catch (err) {
