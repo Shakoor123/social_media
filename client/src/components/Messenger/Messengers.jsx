@@ -18,7 +18,7 @@ function Messengers() {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io("ws://localhost:5000");
+    socket.current = io(`${process.env.React_App_SOCKET_URL}`);
     socket.current.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderId,

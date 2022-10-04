@@ -73,7 +73,7 @@ function Post(props) {
               onClick={deletePost}
             >
               {(props.username || props.username === cuser.username) && (
-                <MoreVert />
+                <span className="delete">Delete</span>
               )}
             </div>
           </div>

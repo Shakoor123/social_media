@@ -9,12 +9,16 @@ import {
 } from "@mui/icons-material";
 import { AppContext } from "../../Context/AppContext";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
+
 function Share() {
   const [desc, setDesc] = useState();
   const [image, setImage] = useState();
-  const [imgurl, setImgurl] = useState();
+  const [imgurl, setImgurl] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { cuser } = useContext(AppContext);
   const sharehandler = async () => {
+    setLoading(true);
     if (image) {
       const data = new FormData();
       data.append("file", image);
@@ -27,6 +31,10 @@ function Share() {
         .then((resp) => resp.json())
         .then((data) => {
           setImgurl(data.url);
+          if (imgurl == null) {
+            setLoading(false);
+            return;
+          }
         })
         .then(async () => {
           imgurl.toString();
@@ -51,6 +59,7 @@ function Share() {
           window.location.reload();
         });
     } else {
+      setLoading(false);
       alert("select text or image");
     }
   };
@@ -87,38 +96,44 @@ function Share() {
             />
           </div>
         )}
-        <div className="sharebottom">
-          <div className="shareoptions">
-            <label className="shareoption" htmlFor="file">
-              <PermMedia htmlColor="tomato" className="shareicon" />
-              <span className="shareoptiontext">Photo or video</span>
-              <input
-                type="file"
-                id="file"
-                style={{ display: "none" }}
-                accept=".png,.jpeg,.jpg"
-                onChange={(e) => {
-                  setImage(e.target.files[0]);
-                }}
-              />
-            </label>
-            <div className="shareoption">
-              <Label htmlColor="blue" className="shareicon" />
-              <span className="shareoptiontext">Tag</span>
-            </div>
-            <div className="shareoption">
-              <Room htmlColor="green" className="shareicon" />
-              <span className="shareoptiontext">Location</span>
-            </div>
-            <div className="shareoption">
-              <EmojiEmotions htmlColor="goldenrod" className="shareicon" />
-              <span className="shareoptiontext">Feelings</span>
-            </div>
+        {loading ? (
+          <div className="loadingShare">
+            <CircularProgress color="primary" style={{ size: "120px" }} />
           </div>
-          <button className="sharebutton" onClick={sharehandler}>
-            Share
-          </button>
-        </div>
+        ) : (
+          <div className="sharebottom">
+            <div className="shareoptions">
+              <label className="shareoption" htmlFor="file">
+                <PermMedia htmlColor="tomato" className="shareicon" />
+                <span className="shareoptiontext">Photo or video</span>
+                <input
+                  type="file"
+                  id="file"
+                  style={{ display: "none" }}
+                  accept=".png,.jpeg,.jpg"
+                  onChange={(e) => {
+                    setImage(e.target.files[0]);
+                  }}
+                />
+              </label>
+              <div className="shareoption">
+                <Label htmlColor="blue" className="shareicon" />
+                <span className="shareoptiontext">Tag</span>
+              </div>
+              <div className="shareoption">
+                <Room htmlColor="green" className="shareicon" />
+                <span className="shareoptiontext">Location</span>
+              </div>
+              <div className="shareoption">
+                <EmojiEmotions htmlColor="goldenrod" className="shareicon" />
+                <span className="shareoptiontext">Feelings</span>
+              </div>
+            </div>
+            <button className="sharebutton" onClick={sharehandler}>
+              Share
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

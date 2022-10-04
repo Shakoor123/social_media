@@ -1,61 +1,55 @@
-
-.main{
-    display: flex;
-    justify-content: center;
-
+.main {
+  display: flex;
+  justify-content: center;
 }
-.signup{
-    margin-top: 5%;
-    background-color: rgb(255, 255, 255);
-    padding: 30px   ;
-    border-radius: 20px;
-    box-shadow: -1px 0px 39px 11px rgba(0,0,0,0.75);
--webkit-box-shadow: -1px 0px 39px 11px rgba(0,0,0,0.75);
--moz-box-shadow: -1px 0px 39px 11px rgba(0,0,0,0.75);
+.signup {
+  margin-top: 5%;
+  background-color: rgb(255, 255, 255);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: -1px 0px 39px 11px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: -1px 0px 39px 11px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 0px 39px 11px rgba(0, 0, 0, 0.75);
 }
-.heading{
-    font-size: 42px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: rgb(0, 0, 0);
+.heading {
+  font-size: 42px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: rgb(44, 41, 41);
 }
-.forminput{
-    width: 400px;
-    padding: 8PX;
-    border-radius: 12PX;
-    background-color:rgb(255, 255, 255);
-    color: lightblue;
-    
+.forminput {
+  width: 400px;
+  padding: 8px;
+  border-radius: 12px;
+  background-color: rgb(64, 59, 59);
+  color: lightblue;
 }
-.forminput:hover{
-    background-color:rgb(0, 0, 0);
-    color:blue;
-    
+.forminput:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(179, 179, 199);
 }
-.buttton{
-    background-color:lightblue;
-    color: rgb(255, 255, 255);
-    width: 300px;
-    padding: 8PX;
-    border-radius: 12PX;
+.buttton {
+  background-color: lightblue;
+  color: rgb(255, 255, 255);
+  width: 300px;
+  padding: 8px;
+  border-radius: 12px;
 }
-.buttton:hover{
-    background-color:rgb(255, 255, 255);
-    color:blue;
-    
+.buttton:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(53, 53, 126);
 }
-.bottom{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-
+.bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
-.signup-text{
-    font-size: 22px;
-    margin-bottom: 20px;
-    cursor: pointer;
-    border-radius: 15px;
+.signup-text {
+  font-size: 22px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-radius: 15px;
 }
-.signup-text:hover{
-    color: lightblue;
+.signup-text:hover {
+  color: lightblue;
 }
