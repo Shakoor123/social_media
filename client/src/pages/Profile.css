@@ -1,6 +1,7 @@
 .profile {
   display: flex;
   width: 100%;
+  background-image: linear-gradient(#f8fbff, #9ec9ff);
 }
 .profileright {
   flex: 9;

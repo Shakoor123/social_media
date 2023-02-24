@@ -1,9 +1,16 @@
+/* #3360ff
+#5c79ff
+#9ec9ff
+#ccdeff
+#f8fbff */
 .share {
   width: 100%;
   border-radius: 10px;
-  box-shadow: 1px 1px 66px 20px rgba(255, 255, 255, 0.55);
-  -webkit-box-shadow: 1px 1px 66px 20px rgba(249, 215, 215, 0.55);
-  -moz-box-shadow: 1px 1px 66px 20px rgba(255, 255, 255, 0.55);
+  -webkit-box-shadow: 1px 1px 10px 0px rgba(61, 52, 61, 1);
+  -moz-box-shadow: 1px 1px 10px 0px rgba(61, 52, 61, 1);
+
+  box-shadow: 1px 1px 10px 0px rgba(61, 52, 61, 1);
+  background-color: white;
 }
 .sharewrapper {
   padding: 10px;
@@ -98,6 +105,23 @@
   }
   .shareoptiontext {
     font-size: 10px;
+  }
+  .shareimage {
+    width: 30px;
+    height: 30px;
+  }
+  .sharetop {
+    padding: 10px;
+  }
+  .shareinput {
+    font-size: 14px;
+    width: auto;
+  }
+  .shareoptiontext {
+    display: none;
+  }
+  .sharebottom {
+    padding: 5px;
   }
 }
 .loadingShare {

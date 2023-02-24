@@ -1,10 +1,10 @@
 .feed {
-  flex: 5.5;
+  flex: 4.5;
   height: calc(100vh - 50px);
   overflow-y: scroll;
 }
 .feedwrapper {
-  padding: 20px;
+  padding: 10px;
 }
 .users {
   font-weight: bold;

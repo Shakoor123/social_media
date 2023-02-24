@@ -95,20 +95,20 @@ function Rightbar({ user, setRight }) {
     return (
       <>
         <span
-          className="home"
+          className="homeTxt"
           onClick={() => {
             setRight(false);
           }}
         >
           home
         </span>
-        <div className="birthdaycontainer">
+        {/* <div className="birthdaycontainer">
           <img src="/Assets/gift.jpeg" alt="" className="birthdayimage" />
           <span className="birthdaytext">
             <b>Sushanth A</b> and <b>3 other friends</b> have birthday today
           </span>
         </div>
-        <img src="/Assets/ads.jpeg" alt="" className="rightbarimage" />
+        <img src="/Assets/ads.jpeg" alt="" className="rightbarimage" /> */}
         <h4 className="rightbartitle">All Users</h4>
         <ul className="rightbarfriendlist">
           {all.map((a) => (

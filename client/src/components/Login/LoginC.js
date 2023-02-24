@@ -67,9 +67,7 @@ function LoginC() {
           <p style={{ color: "red", fontSize: 12 }}>
             {errtext && "Wrong email or password"}
           </p>
-          <Link to={"/signup"} style={{ textDecoration: "none" }}>
-            <span className="signup-text">Don't have an Account</span>
-          </Link>
+
           <div className="bottom">
             <button type="button" onClick={action} class=" buttton">
               {loding ? (
@@ -80,6 +78,9 @@ function LoginC() {
             </button>
             <br></br>
           </div>
+          <Link to={"/signup"} style={{ textDecoration: "none" }}>
+            <span className="signup-text">Don't have an Account</span>
+          </Link>
         </div>
       </div>
     </div>

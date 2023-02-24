@@ -20,6 +20,45 @@ function Navbar() {
         </Link>
       </div>
 
+      {/* <div className="topbarright">
+        <div className="topbarlinks">
+          <span className="topbarlink">{cuser.username}</span>
+        </div>
+        <div className="logoutButton">
+          {cuser ? <ExitToApp onClick={logOut}></ExitToApp> : ""}
+        </div>
+        <div className="topbaricons">
+          <div className="topbariconitem">
+            <Person />
+          </div>
+          <div className="topbariconitem">
+            <Chat />
+            <Link to={"/messenger"} style={{ textDecorationStyle: "none" }}>
+              <span
+                className="
+              topbariconbadge"
+              >
+                1
+              </span>
+            </Link>
+          </div>
+
+          <div className="topbariconitem">
+            <Notifications />
+          </div>
+        </div>
+        <Link to={`/profile/${cuser.username}`}>
+          <img
+            src={
+              cuser.profilePicture
+                ? cuser.profilePicture
+                : "/Assets/noimage.png"
+            }
+            alt=""
+            className="topbarimage"
+          />
+        </Link>
+      </div> */}
       <div className="topbarright">
         <div className="topbarlinks">
           <span className="topbarlink">{cuser.username}</span>

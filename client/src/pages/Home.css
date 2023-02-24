@@ -1,6 +1,7 @@
 .homecontainer {
   display: flex;
   width: 100%;
+  background-image: linear-gradient(#f8fbff, #9ec9ff);
 }
 @media only screen and (max-width: 480px) {
   .hide {

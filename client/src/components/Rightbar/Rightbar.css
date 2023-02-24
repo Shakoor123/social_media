@@ -1,8 +1,16 @@
 .rightbar {
   flex: 3.5;
+  height: calc(100vh - 60px);
+  overflow-y: scroll;
 }
 .rightbarwrapper {
-  padding: 20px 20px 0 0;
+  padding: 10px;
+  width: 350px;
+}
+@media screen and (max-width: 450px) {
+  .rightbarwrapper {
+    width: 100%;
+  }
 }
 .birthdaycontainer {
   display: flex;
@@ -88,4 +96,12 @@
 .rightbarinfoitem,
 .rightbarfollowings {
   margin-left: 20px;
+}
+.homeTxt {
+  display: none;
+}
+@media screen and (max-width: 450px) {
+  .homeTxt {
+    display: contents;
+  }
 }
