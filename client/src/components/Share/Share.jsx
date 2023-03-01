@@ -68,13 +68,7 @@ function Share() {
     <div className="share">
       <div className="sharewrapper">
         <div className="sharetop">
-          <img
-            src={
-              cuser.profilePicture ? cuser.profilePicture : "Assets/noimage.png"
-            }
-            alt=""
-            className="shareimage"
-          />
+          <img src={cuser.profilePicture} alt="" className="shareimage" />
           <input
             type="text"
             onChange={(e) => {

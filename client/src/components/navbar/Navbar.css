@@ -108,9 +108,9 @@
     width: 25px;
     height: 25px;
   }
-  .topbariconitem:nth-child(1) {
+  /* .topbariconitem:nth-child(1) {
     display: none;
-  }
+  } */
   .topbariconitem:nth-child(3) {
     display: none;
   }

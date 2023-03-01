@@ -109,7 +109,7 @@ function Messengers() {
         <div className="chatMenuWrapper">
           <input placeholder="serch for friends..." className="chatMenuInput" />
           {conversations.map((c) => (
-            <div onClick={() => setCurrentChat(c)}>
+            <div onClick={() => setCurrentChat(c)} className="convDiv">
               <Conversations conversation={c} currentUser={cuser} />
             </div>
           ))}

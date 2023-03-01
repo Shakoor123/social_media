@@ -77,4 +77,13 @@
   .chatMenuInput {
     display: none;
   }
+  .chatMenuWrapper {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.convDiv {
+  padding: 0;
+  margin: 0;
 }

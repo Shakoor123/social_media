@@ -67,8 +67,12 @@ function Navbar() {
           {cuser ? <ExitToApp onClick={logOut}></ExitToApp> : ""}
         </div>
         <div className="topbaricons">
-          <div className="topbariconitem">
+          {/* <div className="topbariconitem">
             <Person />
+          </div> */}
+
+          <div className="topbariconitem">
+            <Notifications />
           </div>
           <div className="topbariconitem">
             <Chat />
@@ -80,10 +84,6 @@ function Navbar() {
                 1
               </span>
             </Link>
-          </div>
-
-          <div className="topbariconitem">
-            <Notifications />
           </div>
         </div>
         <Link to={`/profile/${cuser.username}`}>
